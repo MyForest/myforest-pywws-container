@@ -2,8 +2,8 @@ FROM centos
 
 LABEL maintainer "David Bowen <david@myforest.com>"
 
-RUN rpm -iUh \
-        http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm && \
+RUN yum install && \
+        epel-release
     yum -y install \
         libusb \
         gnuplot \
