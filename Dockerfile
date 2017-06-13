@@ -2,18 +2,18 @@ FROM centos
 
 LABEL maintainer "David Bowen <david@myforest.com>"
 
-RUN yum install && \
-        epel-release
+RUN yum -y install \
+        epel-release && \
     yum -y install \
         libusb \
-        gnuplot \
         python-pip \
+        gnuplot \
     && \
     pip install --upgrade \
-        libusb1 \
-        oauth2 \
         pip \
+        libusb1 \
         python-twitter \
+        oauth2 \
     && \
     pip install \
         pywws \
