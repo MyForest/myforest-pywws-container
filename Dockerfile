@@ -2,21 +2,25 @@ FROM centos
 
 LABEL maintainer "David Bowen <david@myforest.com>"
 
-RUN yum -y install \
-        epel-release && \
-    yum -y install \
+RUN # Enable the EPEL repo to allow access to python-pip \
+    yum install --assumeyes \
+        epel-release \
+    && \
+    # Install OS pre-requisites \
+    yum install --assumeyes \
+        gnuplot \
         libusb \
         python-pip \
-        gnuplot \
     && \
+    # Install Python pre-requisites \
     pip install --upgrade \
-        pip \
         libusb1 \
-        python-twitter \
         oauth2 \
+        pip \
+        python-twitter \
     && \
-    pip install \
+    # Allow pre-release versions of pywws \
+    pip install --pre \
         pywws \
-        --pre \
     && \
     yum clean all
