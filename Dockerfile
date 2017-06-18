@@ -24,3 +24,6 @@ RUN \
         pywws \
     && \
     yum clean all
+
+#Test pywws is installed
+RUN pywws-version
