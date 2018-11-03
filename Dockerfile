@@ -1,29 +1,22 @@
-FROM centos
+FROM fedora
 
 LABEL maintainer "David Bowen <david@myforest.com>"
 
 RUN \
-    yum install --assumeyes \
-        epel-release \
-    && \
-    \
-    yum install --assumeyes \
+    dnf install --assumeyes \
         gnuplot \
-        libusb \
-        python-pip \
     && \
     \
-    pip install --upgrade \
+    pip3 install --upgrade \
         libusb1 \
         oauth2 \
-        pip \
         python-twitter \
     && \
     \
-    pip install --pre \
+    pip3 install --pre \
         pywws \
     && \
-    yum clean all
+    dnf clean all
 
 #Test pywws is installed
 RUN pywws-version
