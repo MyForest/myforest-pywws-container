@@ -3,11 +3,11 @@ FROM fedora
 LABEL maintainer "David Bowen <david@myforest.com>"
 
 RUN \
-    dnf install --assumeyes gnuplot \
+    dnf install --assumeyes python-pip gnuplot \
     && \
-    pip3 install --upgrade libusb1 python-twitter \
+    pip install --upgrade libusb1 python-twitter \
     && \
-    pip3 install --pre pywws \
+    pip install --pre pywws \
     && \
     dnf clean all
 
